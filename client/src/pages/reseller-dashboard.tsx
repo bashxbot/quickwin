@@ -250,93 +250,93 @@ export default function ResellerDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-3 sm:p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-6 sm:mb-8 space-y-4 sm:space-y-0">
           <div>
-            <h1 className="text-3xl font-bold text-white mb-2">Reseller Dashboard</h1>
-            <p className="text-gray-300">Welcome back! Here's your performance overview.</p>
+            <h1 className="text-2xl sm:text-3xl font-bold text-white mb-1 sm:mb-2">Reseller Dashboard</h1>
+            <p className="text-gray-300 text-sm sm:text-base">Welcome back! Here's your performance overview.</p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap gap-2 sm:gap-4">
             <Link href="/">
-              <Button variant="outline" className="bg-white/10 hover:bg-white/20 border border-white/20">
-                <Home className="h-4 w-4 mr-2" />
-                Return Home
+              <Button variant="outline" className="bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm">
+                <Home className="h-3 w-3 sm:h-4 sm:w-4 sm:mr-2" />
+                <span className="hidden sm:inline">Return Home</span>
               </Button>
             </Link>
-            <Button onClick={refreshStats} className="bg-white/10 hover:bg-white/20 border border-white/20">
-              <RefreshCw className="h-4 w-4 mr-2" />
-              Refresh
+            <Button onClick={refreshStats} className="bg-white/10 hover:bg-white/20 border border-white/20 text-xs sm:text-sm">
+              <RefreshCw className="h-3 w-3 sm:h-4 sm:w-4 sm:mr-2" />
+              <span className="hidden sm:inline">Refresh</span>
             </Button>
             <Button 
               onClick={openNotifications}
-              className="bg-gradient-to-r from-primary to-secondary"
+              className="bg-gradient-to-r from-primary to-secondary text-xs sm:text-sm"
             >
-              <Bell className="h-4 w-4 mr-2" />
-              Notifications
+              <Bell className="h-3 w-3 sm:h-4 sm:w-4 sm:mr-2" />
+              <span className="hidden sm:inline">Notifications</span>
             </Button>
           </div>
         </div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-6 sm:mb-8">
           <Card className="bg-white/10 backdrop-blur-xl border-white/20">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Total Earnings</CardTitle>
-              <DollarSign className="h-4 w-4 text-green-400" />
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-3 sm:p-6">
+              <CardTitle className="text-xs sm:text-sm font-medium text-gray-300">Total Earnings</CardTitle>
+              <DollarSign className="h-3 w-3 sm:h-4 sm:w-4 text-green-400" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-white">${stats.totalEarnings.toFixed(2)}</div>
-              <p className="text-xs text-gray-400">+20.1% from last month</p>
+            <CardContent className="p-3 sm:p-6 pt-0">
+              <div className="text-lg sm:text-2xl font-bold text-white">${stats.totalEarnings.toFixed(2)}</div>
+              <p className="text-xs text-gray-400 hidden sm:block">+20.1% from last month</p>
             </CardContent>
           </Card>
 
           <Card className="bg-white/10 backdrop-blur-xl border-white/20">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Monthly Earnings</CardTitle>
-              <TrendingUp className="h-4 w-4 text-blue-400" />
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-3 sm:p-6">
+              <CardTitle className="text-xs sm:text-sm font-medium text-gray-300">Monthly Earnings</CardTitle>
+              <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4 text-blue-400" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-white">${stats.monthlyEarnings.toFixed(2)}</div>
-              <p className="text-xs text-gray-400">+15.3% from last month</p>
+            <CardContent className="p-3 sm:p-6 pt-0">
+              <div className="text-lg sm:text-2xl font-bold text-white">${stats.monthlyEarnings.toFixed(2)}</div>
+              <p className="text-xs text-gray-400 hidden sm:block">+15.3% from last month</p>
             </CardContent>
           </Card>
 
           <Card className="bg-white/10 backdrop-blur-xl border-white/20">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Total Customers</CardTitle>
-              <Users className="h-4 w-4 text-purple-400" />
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-3 sm:p-6">
+              <CardTitle className="text-xs sm:text-sm font-medium text-gray-300">Total Customers</CardTitle>
+              <Users className="h-3 w-3 sm:h-4 sm:w-4 text-purple-400" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-white">{stats.totalCustomers}</div>
-              <p className="text-xs text-gray-400">+{stats.newCustomers} this month</p>
+            <CardContent className="p-3 sm:p-6 pt-0">
+              <div className="text-lg sm:text-2xl font-bold text-white">{stats.totalCustomers}</div>
+              <p className="text-xs text-gray-400 hidden sm:block">+{stats.newCustomers} this month</p>
             </CardContent>
           </Card>
 
           <Card className="bg-white/10 backdrop-blur-xl border-white/20">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium text-gray-300">Conversion Rate</CardTitle>
-              <Target className="h-4 w-4 text-orange-400" />
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 p-3 sm:p-6">
+              <CardTitle className="text-xs sm:text-sm font-medium text-gray-300">Conversion Rate</CardTitle>
+              <Target className="h-3 w-3 sm:h-4 sm:w-4 text-orange-400" />
             </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-white">{stats.conversionRate.toFixed(1)}%</div>
-              <p className="text-xs text-gray-400">+2.4% from last month</p>
+            <CardContent className="p-3 sm:p-6 pt-0">
+              <div className="text-lg sm:text-2xl font-bold text-white">{stats.conversionRate.toFixed(1)}%</div>
+              <p className="text-xs text-gray-400 hidden sm:block">+2.4% from last month</p>
             </CardContent>
           </Card>
         </div>
 
         {/* Main Content Tabs */}
-        <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="bg-white/10 backdrop-blur-xl border border-white/20 p-1">
-            <TabsTrigger value="overview" className="data-[state=active]:bg-white/20">Overview</TabsTrigger>
-            <TabsTrigger value="customers" className="data-[state=active]:bg-white/20">Customers</TabsTrigger>
-            <TabsTrigger value="sales" className="data-[state=active]:bg-white/20">Recent Sales</TabsTrigger>
-            <TabsTrigger value="payouts" className="data-[state=active]:bg-white/20">Payouts</TabsTrigger>
+        <Tabs defaultValue="overview" className="space-y-4 sm:space-y-6">
+          <TabsList className="bg-white/10 backdrop-blur-xl border border-white/20 p-1 w-full grid grid-cols-4 h-auto">
+            <TabsTrigger value="overview" className="data-[state=active]:bg-white/20 text-xs sm:text-sm p-2 sm:p-3">Overview</TabsTrigger>
+            <TabsTrigger value="customers" className="data-[state=active]:bg-white/20 text-xs sm:text-sm p-2 sm:p-3">Customers</TabsTrigger>
+            <TabsTrigger value="sales" className="data-[state=active]:bg-white/20 text-xs sm:text-sm p-2 sm:p-3">Sales</TabsTrigger>
+            <TabsTrigger value="payouts" className="data-[state=active]:bg-white/20 text-xs sm:text-sm p-2 sm:p-3">Payouts</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="overview" className="space-y-6">
-            <div className="grid lg:grid-cols-2 gap-6">
+          <TabsContent value="overview" className="space-y-4 sm:space-y-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
               {/* Referral Link Card */}
               <Card className="bg-white/10 backdrop-blur-xl border-white/20">
                 <CardHeader>
@@ -379,11 +379,11 @@ export default function ResellerDashboard() {
                 <CardHeader>
                   <CardTitle className="text-white">Quick Actions</CardTitle>
                 </CardHeader>
-                <CardContent className="grid grid-cols-2 gap-4">
+                <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button className="h-auto p-4 flex flex-col items-center gap-2 bg-green-600 hover:bg-green-700">
-                        <UserPlus className="h-6 w-6" />
+                      <Button className="h-auto p-3 sm:p-4 flex flex-col items-center gap-1 sm:gap-2 bg-green-600 hover:bg-green-700 text-xs sm:text-sm">
+                        <UserPlus className="h-4 w-4 sm:h-6 sm:w-6" />
                         <span>Add Customer</span>
                       </Button>
                     </DialogTrigger>
@@ -424,25 +424,25 @@ export default function ResellerDashboard() {
 
                   <Button 
                     onClick={downloadReport}
-                    className="h-auto p-4 flex flex-col items-center gap-2 bg-purple-600 hover:bg-purple-700"
+                    className="h-auto p-3 sm:p-4 flex flex-col items-center gap-1 sm:gap-2 bg-purple-600 hover:bg-purple-700 text-xs sm:text-sm"
                   >
-                    <Download className="h-6 w-6" />
+                    <Download className="h-4 w-4 sm:h-6 sm:w-6" />
                     <span>Download Report</span>
                   </Button>
 
                   <Button 
                     onClick={openEmailCampaign}
-                    className="h-auto p-4 flex flex-col items-center gap-2 bg-blue-600 hover:bg-blue-700"
+                    className="h-auto p-3 sm:p-4 flex flex-col items-center gap-1 sm:gap-2 bg-blue-600 hover:bg-blue-700 text-xs sm:text-sm"
                   >
-                    <Mail className="h-6 w-6" />
+                    <Mail className="h-4 w-4 sm:h-6 sm:w-6" />
                     <span>Email Campaign</span>
                   </Button>
 
                   <Button 
                     onClick={openSettings}
-                    className="h-auto p-4 flex flex-col items-center gap-2 bg-orange-600 hover:bg-orange-700"
+                    className="h-auto p-3 sm:p-4 flex flex-col items-center gap-1 sm:gap-2 bg-orange-600 hover:bg-orange-700 text-xs sm:text-sm"
                   >
-                    <Settings className="h-6 w-6" />
+                    <Settings className="h-4 w-4 sm:h-6 sm:w-6" />
                     <span>Settings</span>
                   </Button>
                 </CardContent>
@@ -450,28 +450,87 @@ export default function ResellerDashboard() {
             </div>
           </TabsContent>
 
-          <TabsContent value="customers" className="space-y-6">
+          <TabsContent value="customers" className="space-y-4 sm:space-y-6">
             <Card className="bg-white/10 backdrop-blur-xl border-white/20">
-              <CardHeader>
-                <CardTitle className="text-white">Customer Management</CardTitle>
-                <CardDescription className="text-gray-300">Manage your customer base and track their status</CardDescription>
+              <CardHeader className="p-4 sm:p-6">
+                <CardTitle className="text-white text-lg sm:text-xl">Customer Management</CardTitle>
+                <CardDescription className="text-gray-300 text-sm">Manage your customer base and track their status</CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="mb-4 flex justify-between items-center">
+              <CardContent className="p-4 sm:p-6 pt-0">
+                <div className="mb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0">
                   <p className="text-sm text-gray-300">
                     {customers.length} total customers
                   </p>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="bg-white/10 border-white/20">
+                    <Button size="sm" variant="outline" className="bg-white/10 border-white/20 text-xs">
                       <Download className="h-3 w-3 mr-1" />
                       Export
                     </Button>
-                    <Button size="sm" className="bg-green-600 hover:bg-green-700">
+                    <Button size="sm" className="bg-green-600 hover:bg-green-700 text-xs">
                       <UserPlus className="h-3 w-3 mr-1" />
                       Add Customer
                     </Button>
                   </div>
                 </div>
+                {/* Mobile Card View */}
+                <div className="block lg:hidden">
+                  <ScrollArea className="h-[400px] space-y-3">
+                    {customers.map((customer) => (
+                      <Card key={customer.id} className="bg-white/5 border-white/10 p-3 mb-3">
+                        <div className="flex justify-between items-start mb-2">
+                          <div>
+                            <h4 className="font-semibold text-white text-sm">{customer.name}</h4>
+                            <p className="text-xs text-gray-400">{customer.email}</p>
+                          </div>
+                          <div className="flex gap-1">
+                            <Badge variant={customer.plan === 'Premium' ? 'default' : 'secondary'} className="text-xs">
+                              {customer.plan}
+                            </Badge>
+                          </div>
+                        </div>
+                        <div className="flex justify-between items-center">
+                          <div className="flex gap-2">
+                            <Badge variant={customer.status === 'Active' ? 'default' : 'destructive'} className="text-xs">
+                              {customer.status}
+                            </Badge>
+                            <span className="text-green-400 text-sm font-semibold">${customer.commission}</span>
+                          </div>
+                          <div className="flex gap-1">
+                            <Button 
+                              size="sm" 
+                              variant="outline" 
+                              className="bg-white/10 border-white/20 hover:bg-white/20 h-6 w-6 p-0"
+                              onClick={() => viewCustomerDetails(customer)}
+                              title="View"
+                            >
+                              <Eye className="h-3 w-3" />
+                            </Button>
+                            <Button 
+                              size="sm" 
+                              variant="outline" 
+                              className="bg-blue-600/20 border-blue-600/20 hover:bg-blue-600/40 h-6 w-6 p-0"
+                              onClick={() => editCustomer(customer)}
+                              title="Edit"
+                            >
+                              <Edit className="h-3 w-3" />
+                            </Button>
+                            <Button 
+                              size="sm" 
+                              variant="outline" 
+                              className="bg-red-600/20 border-red-600/20 hover:bg-red-600/40 h-6 w-6 p-0"
+                              onClick={() => deleteCustomer(customer.id)}
+                              title="Delete"
+                            >
+                              <Trash2 className="h-3 w-3" />
+                            </Button>
+                          </div>
+                        </div>
+                      </Card>
+                    ))}
+                  </ScrollArea>
+                </div>
+                {/* Desktop Table View */}
+                <div className="hidden lg:block">
                 <ScrollArea className="h-[500px] rounded-md border border-white/20 bg-black/20">
                   <table className="w-full">
                     <thead className="sticky top-0 bg-slate-900/95 backdrop-blur-sm border-b border-white/20">
@@ -548,54 +607,55 @@ export default function ResellerDashboard() {
                     </tbody>
                   </table>
                 </ScrollArea>
+                </div>
               </CardContent>
             </Card>
           </TabsContent>
 
-          <TabsContent value="sales" className="space-y-6">
+          <TabsContent value="sales" className="space-y-4 sm:space-y-6">
             <Card className="bg-white/10 backdrop-blur-xl border-white/20">
-              <CardHeader>
-                <CardTitle className="text-white">Recent Sales</CardTitle>
-                <CardDescription className="text-gray-300">Track your latest sales and commissions</CardDescription>
+              <CardHeader className="p-4 sm:p-6">
+                <CardTitle className="text-white text-lg sm:text-xl">Recent Sales</CardTitle>
+                <CardDescription className="text-gray-300 text-sm">Track your latest sales and commissions</CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="mb-4 flex justify-between items-center">
+              <CardContent className="p-4 sm:p-6 pt-0">
+                <div className="mb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0">
                   <p className="text-sm text-gray-300">
                     {recentSales.length} recent sales
                   </p>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="bg-white/10 border-white/20">
+                    <Button size="sm" variant="outline" className="bg-white/10 border-white/20 text-xs">
                       <FileText className="h-3 w-3 mr-1" />
                       View All
                     </Button>
-                    <Button size="sm" className="bg-purple-600 hover:bg-purple-700">
+                    <Button size="sm" className="bg-purple-600 hover:bg-purple-700 text-xs">
                       <Download className="h-3 w-3 mr-1" />
                       Export Sales
                     </Button>
                   </div>
                 </div>
                 <ScrollArea className="h-[450px] rounded-md border border-white/20 bg-black/20">
-                  <div className="space-y-3 p-4">
+                  <div className="space-y-3 p-2 sm:p-4">
                     {recentSales.map((sale) => (
-                      <div key={sale.id} className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
-                            <DollarSign className="h-5 w-5 text-white" />
+                      <div key={sale.id} className="flex items-center justify-between p-3 sm:p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                        <div className="flex items-center gap-2 sm:gap-3 flex-1">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                            <DollarSign className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                           </div>
-                          <div>
-                            <h4 className="font-semibold text-white">{sale.customer}</h4>
-                            <p className="text-sm text-gray-300">{sale.plan} Plan • {sale.date}</p>
+                          <div className="min-w-0 flex-1">
+                            <h4 className="font-semibold text-white text-sm sm:text-base truncate">{sale.customer}</h4>
+                            <p className="text-xs sm:text-sm text-gray-300">{sale.plan} Plan • {sale.date}</p>
                           </div>
                         </div>
-                        <div className="text-right">
-                          <p className="font-semibold text-white">${sale.amount}</p>
-                          <p className="text-sm text-green-400">+${sale.commission} commission</p>
+                        <div className="text-right mx-2 sm:mx-4">
+                          <p className="font-semibold text-white text-sm sm:text-base">${sale.amount}</p>
+                          <p className="text-xs sm:text-sm text-green-400">+${sale.commission}</p>
                         </div>
                         <div className="flex gap-1">
                           <Button 
                             size="sm" 
                             variant="outline" 
-                            className="bg-white/10 border-white/20 hover:bg-white/20 h-8 w-8 p-0"
+                            className="bg-white/10 border-white/20 hover:bg-white/20 h-6 w-6 sm:h-8 sm:w-8 p-0"
                             onClick={() => toast({ title: "Sale Details", description: `Viewing details for ${sale.customer}'s purchase` })}
                             title="View Sale Details"
                           >
@@ -610,49 +670,49 @@ export default function ResellerDashboard() {
             </Card>
           </TabsContent>
 
-          <TabsContent value="payouts" className="space-y-6">
+          <TabsContent value="payouts" className="space-y-4 sm:space-y-6">
             <Card className="bg-white/10 backdrop-blur-xl border-white/20">
-              <CardHeader>
-                <CardTitle className="text-white">Payout History</CardTitle>
-                <CardDescription className="text-gray-300">Track your earnings and payment history</CardDescription>
+              <CardHeader className="p-4 sm:p-6">
+                <CardTitle className="text-white text-lg sm:text-xl">Payout History</CardTitle>
+                <CardDescription className="text-gray-300 text-sm">Track your earnings and payment history</CardDescription>
               </CardHeader>
-              <CardContent>
-                <div className="mb-4 flex justify-between items-center">
+              <CardContent className="p-4 sm:p-6 pt-0">
+                <div className="mb-4 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0">
                   <p className="text-sm text-gray-300">
                     Payout history and pending commissions
                   </p>
                   <div className="flex gap-2">
-                    <Button size="sm" variant="outline" className="bg-white/10 border-white/20">
+                    <Button size="sm" variant="outline" className="bg-white/10 border-white/20 text-xs">
                       <FileText className="h-3 w-3 mr-1" />
                       Tax Report
                     </Button>
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-xs">
                       <Download className="h-3 w-3 mr-1" />
                       Export History
                     </Button>
                   </div>
                 </div>
-                <ScrollArea className="h-[300px] rounded-md border border-white/20 bg-black/20 mb-6">
-                  <div className="space-y-3 p-4">
+                <ScrollArea className="h-[300px] rounded-md border border-white/20 bg-black/20 mb-4 sm:mb-6">
+                  <div className="space-y-3 p-2 sm:p-4">
                     {payouts.map((payout) => (
-                      <div key={payout.id} className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
-                            <CreditCard className="h-5 w-5 text-white" />
+                      <div key={payout.id} className="flex items-center justify-between p-3 sm:p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                        <div className="flex items-center gap-2 sm:gap-3 flex-1">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center flex-shrink-0">
+                            <CreditCard className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                           </div>
-                          <div>
-                            <h4 className="font-semibold text-white">${payout.amount}</h4>
-                            <p className="text-sm text-gray-300">{payout.date} • {payout.method}</p>
+                          <div className="min-w-0 flex-1">
+                            <h4 className="font-semibold text-white text-sm sm:text-base">${payout.amount}</h4>
+                            <p className="text-xs sm:text-sm text-gray-300">{payout.date} • {payout.method}</p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-center gap-2 sm:gap-3">
                           <Badge variant={payout.status === 'Paid' ? 'default' : 'secondary'} className="text-xs">
                             {payout.status}
                           </Badge>
                           <Button 
                             size="sm" 
                             variant="outline" 
-                            className="bg-white/10 border-white/20 hover:bg-white/20 h-8 w-8 p-0"
+                            className="bg-white/10 border-white/20 hover:bg-white/20 h-6 w-6 sm:h-8 sm:w-8 p-0"
                             onClick={() => toast({ title: "Payout Details", description: `Viewing payout details for ${payout.date}` })}
                             title="View Payout Details"
                           >
@@ -663,24 +723,24 @@ export default function ResellerDashboard() {
                     ))}
                   </div>
                 </ScrollArea>
-                <div className="pt-6 border-t border-white/20">
-                  <div className="flex justify-between items-center">
+                <div className="pt-4 sm:pt-6 border-t border-white/20">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 sm:gap-0">
                     <div>
-                      <h4 className="font-semibold text-white">Pending Commissions</h4>
-                      <p className="text-2xl font-bold text-green-400">${stats.pendingCommissions}</p>
+                      <h4 className="font-semibold text-white text-base sm:text-lg">Pending Commissions</h4>
+                      <p className="text-xl sm:text-2xl font-bold text-green-400">${stats.pendingCommissions}</p>
                       <p className="text-xs text-gray-400 mt-1">Available for payout</p>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2">
                       <Button 
                         variant="outline" 
-                        className="bg-white/10 border-white/20"
+                        className="bg-white/10 border-white/20 text-xs sm:text-sm w-full sm:w-auto"
                         onClick={() => toast({ title: "Payout Settings", description: "Opening payout method preferences" })}
                       >
-                        <Settings className="h-4 w-4 mr-2" />
+                        <Settings className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
                         Settings
                       </Button>
-                      <Button onClick={requestPayout} className="bg-green-600 hover:bg-green-700">
-                        <CreditCard className="h-4 w-4 mr-2" />
+                      <Button onClick={requestPayout} className="bg-green-600 hover:bg-green-700 text-xs sm:text-sm w-full sm:w-auto">
+                        <CreditCard className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
                         Request Payout
                       </Button>
                     </div>
