@@ -243,7 +243,7 @@ export default function Announcements() {
             Join thousands of players enjoying the latest Quick Win features and dominating their games.
           </p>
           <Button 
-            onClick={() => window.open('https://t.me/quickwin_official', '_blank')}
+            onClick={() => window.open('https://t.me/quickwinofc', '_blank')}
             className="bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 px-8 py-4 rounded-xl text-white font-semibold text-lg shadow-lg"
           >
             <Rocket className="mr-2 h-5 w-5" />
