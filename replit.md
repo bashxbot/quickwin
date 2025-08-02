@@ -8,6 +8,18 @@ Quick Win is a modern web application that serves as an AI-powered assistant for
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes (August 2025)
+
+### Mobile Responsiveness Enhancement
+- Enhanced reseller dashboard with comprehensive mobile-first design
+- Implemented responsive breakpoints using Tailwind CSS (sm:, lg: breakpoints)
+- Created mobile-specific card layout for customer management (replaces table view on phones)
+- Optimized touch targets and button sizes for mobile interaction
+- Added collapsible header with icon-only buttons on small screens
+- Improved stats grid with 2x2 layout on mobile devices
+- Enhanced tab navigation with full-width grid layout
+- Implemented better scrolling areas with mobile-optimized padding and spacing
+
 ## System Architecture
 
 ### Frontend Architecture
@@ -42,7 +54,9 @@ Preferred communication style: Simple, everyday language.
 - **Typography**: Inter font family for modern, readable interface
 - **Color Palette**: Gradient-based design with primary (purple), secondary (pink), and accent colors
 - **Components**: Glass morphism effects, gradient backgrounds, and smooth animations
-- **Responsive**: Mobile-first approach with Tailwind breakpoints
+- **Responsive**: Mobile-first approach with Tailwind breakpoints (sm:640px, lg:1024px)
+- **Mobile UX**: Touch-friendly interface with optimized button sizes, card-based layouts, and collapsible navigation
+- **Adaptive Layouts**: Desktop table views transform to mobile card views for better readability
 
 ### Authentication & Security
 - **User System**: Username/password authentication with hashed password storage
