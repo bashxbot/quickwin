@@ -231,7 +231,7 @@ export default function FAQ() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
-              onClick={() => window.open('https://t.me/quickwin_official', '_blank')}
+              onClick={() => window.open('https://t.me/quickwinofc', '_blank')}
               className="bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 px-8 py-4 rounded-xl text-white font-semibold shadow-lg text-lg h-auto"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
