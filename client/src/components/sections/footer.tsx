@@ -91,7 +91,7 @@ export default function Footer() {
                     variant="ghost" 
                     size="icon"
                     className="text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
-                    onClick={() => window.open('https://t.me/quickwin_official', '_blank')}
+                    onClick={() => window.open('https://t.me/quickwinofc', '_blank')}
                   >
                     <FaTelegramPlane className="h-5 w-5" />
                   </Button>
@@ -107,7 +107,7 @@ export default function Footer() {
                     variant="ghost" 
                     size="icon"
                     className="text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
-                    onClick={() => window.open('https://twitter.com/quickwinofc', '_blank')}
+                    onClick={() => window.open('https://t.me/quickwinofc', '_blank')}
                   >
                     <FaTwitter className="h-5 w-5" />
                   </Button>
@@ -191,7 +191,7 @@ export default function Footer() {
                   </div>
                   <div className="flex items-center text-gray-300">
                     <FaTelegramPlane className="h-4 w-4 mr-3 text-primary" />
-                    @quickwin_official
+                    @quickwinofc
                   </div>
                   <div className="flex items-center text-gray-300">
                     <MapPin className="h-4 w-4 mr-3 text-primary" />
