@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button"
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
   const quickLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
@@ -127,7 +131,7 @@ export default function Footer() {
                 {quickLinks.map((link, index) => (
                   <li key={index}>
                     <Link href={link.href}>
-                      <span className="text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer hover:translate-x-1 inline-block">
+                      <span onClick={handleLinkClick} className="text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer hover:translate-x-1 inline-block">
                         {link.label}
                       </span>
                     </Link>
@@ -140,7 +144,7 @@ export default function Footer() {
                 {businessLinks.map((link, index) => (
                   <li key={index}>
                     <Link href={link.href}>
-                      <span className="text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer hover:translate-x-1 inline-block">
+                      <span onClick={handleLinkClick} className="text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer hover:translate-x-1 inline-block">
                         {link.label}
                       </span>
                     </Link>
@@ -167,7 +171,7 @@ export default function Footer() {
                       </a>
                     ) : (
                       <Link href={link.href}>
-                        <span className="flex items-center text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer">
+                        <span onClick={handleLinkClick} className="flex items-center text-gray-400 hover:text-white transition-colors duration-300 cursor-pointer">
                           {link.icon && <link.icon className="h-4 w-4 mr-2" />}
                           {link.label}
                         </span>

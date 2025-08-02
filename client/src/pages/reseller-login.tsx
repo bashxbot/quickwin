@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Navigation from "../components/navigation";
 import Footer from "../components/sections/footer";
 import { Button } from "../components/ui/button";
@@ -10,6 +10,10 @@ import { useToast } from "../hooks/use-toast";
 import { Link, useLocation } from "wouter";
 
 export default function ResellerLoginPage() {
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
