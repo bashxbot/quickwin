@@ -33,10 +33,10 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { href: "https://t.me/quickwin_official", icon: FaTelegramPlane, label: "Telegram", color: "hover:text-blue-400" },
+    { href: "https://t.me/quickwinofc", icon: FaTelegramPlane, label: "Telegram", color: "hover:text-blue-400" },
     { href: "https://discord.gg/quickwin", icon: FaDiscord, label: "Discord", color: "hover:text-indigo-400" },
-    { href: "https://twitter.com/quickwin_ai", icon: FaTwitter, label: "Twitter", color: "hover:text-sky-400" },
-    { href: "https://youtube.com/@quickwin", icon: FaYoutube, label: "YouTube", color: "hover:text-red-400" },
+    { href: "https:/t.me/quickwinofc", icon: FaTwitter, label: "Twitter", color: "hover:text-sky-400" },
+    { href: "https://t.me/quickwinofc", icon: FaYoutube, label: "YouTube", color: "hover:text-red-400" },
   ];
 
   const stats = [
