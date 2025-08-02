@@ -46,6 +46,7 @@ export default function Navigation() {
             {navItems.map((item) => (
               <Link key={item.href} href={item.href}>
                 <button 
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'instant' })}
                   className={`text-sm font-medium transition-colors hover:text-primary ${
                     isActive(item.href) ? 'text-primary' : 'text-gray-300'
                   }`}
