@@ -40,6 +40,11 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function ResellerDashboard() {
   const { toast } = useToast();
+
+  // Scroll reset on mount
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
   const [stats, setStats] = useState({
     totalEarnings: 15420.50,
     monthlyEarnings: 3250.75,
@@ -53,19 +58,39 @@ export default function ResellerDashboard() {
     { id: 1, name: "John Doe", email: "john@example.com", plan: "Pro", status: "Active", joined: "2024-01-15", commission: 29.99 },
     { id: 2, name: "Jane Smith", email: "jane@example.com", plan: "Premium", status: "Active", joined: "2024-01-10", commission: 49.99 },
     { id: 3, name: "Mike Johnson", email: "mike@example.com", plan: "Basic", status: "Expired", joined: "2024-01-05", commission: 19.99 },
-    { id: 4, name: "Sarah Wilson", email: "sarah@example.com", plan: "Pro", status: "Active", joined: "2024-01-20", commission: 29.99 }
+    { id: 4, name: "Sarah Wilson", email: "sarah@example.com", plan: "Pro", status: "Active", joined: "2024-01-20", commission: 29.99 },
+    { id: 5, name: "David Chen", email: "david@example.com", plan: "Premium", status: "Active", joined: "2024-01-22", commission: 49.99 },
+    { id: 6, name: "Emma Davis", email: "emma@example.com", plan: "Basic", status: "Active", joined: "2024-01-18", commission: 19.99 },
+    { id: 7, name: "Alex Rodriguez", email: "alex@example.com", plan: "Pro", status: "Active", joined: "2024-01-25", commission: 29.99 },
+    { id: 8, name: "Lisa Chang", email: "lisa@example.com", plan: "Premium", status: "Active", joined: "2024-01-12", commission: 49.99 },
+    { id: 9, name: "Tom Brown", email: "tom@example.com", plan: "Basic", status: "Expired", joined: "2024-01-08", commission: 19.99 },
+    { id: 10, name: "Maria Garcia", email: "maria@example.com", plan: "Pro", status: "Active", joined: "2024-01-28", commission: 29.99 },
+    { id: 11, name: "Robert Taylor", email: "robert@example.com", plan: "Premium", status: "Active", joined: "2024-01-30", commission: 49.99 },
+    { id: 12, name: "Jessica Lee", email: "jessica@example.com", plan: "Basic", status: "Active", joined: "2024-01-14", commission: 19.99 }
   ]);
 
   const [recentSales, setRecentSales] = useState([
-    { id: 1, customer: "Alex Brown", plan: "Premium", amount: 49.99, commission: 14.99, date: "2024-01-25" },
-    { id: 2, customer: "Lisa Davis", plan: "Pro", amount: 29.99, commission: 8.99, date: "2024-01-24" },
-    { id: 3, customer: "Tom Wilson", plan: "Basic", amount: 19.99, commission: 5.99, date: "2024-01-23" }
+    { id: 1, customer: "Alex Brown", plan: "Premium", amount: 49.99, commission: 14.99, date: "2024-02-01" },
+    { id: 2, customer: "Lisa Davis", plan: "Pro", amount: 29.99, commission: 8.99, date: "2024-01-31" },
+    { id: 3, customer: "Tom Wilson", plan: "Basic", amount: 19.99, commission: 5.99, date: "2024-01-30" },
+    { id: 4, customer: "Kevin Park", plan: "Premium", amount: 49.99, commission: 14.99, date: "2024-01-29" },
+    { id: 5, customer: "Amanda White", plan: "Pro", amount: 29.99, commission: 8.99, date: "2024-01-28" },
+    { id: 6, customer: "Steven Miller", plan: "Basic", amount: 19.99, commission: 5.99, date: "2024-01-27" },
+    { id: 7, customer: "Nicole Johnson", plan: "Premium", amount: 49.99, commission: 14.99, date: "2024-01-26" },
+    { id: 8, customer: "Ryan Thompson", plan: "Pro", amount: 29.99, commission: 8.99, date: "2024-01-25" },
+    { id: 9, customer: "Sophie Adams", plan: "Basic", amount: 19.99, commission: 5.99, date: "2024-01-24" },
+    { id: 10, customer: "Marcus Jones", plan: "Premium", amount: 49.99, commission: 14.99, date: "2024-01-23" }
   ]);
 
   const [payouts, setPayouts] = useState([
     { id: 1, amount: 1250.50, date: "2024-01-01", status: "Paid", method: "PayPal" },
-    { id: 2, amount: 980.25, date: "2024-12-01", status: "Paid", method: "Bank Transfer" },
-    { id: 3, amount: 850.25, date: "2024-02-01", status: "Pending", method: "PayPal" }
+    { id: 2, amount: 980.25, date: "2023-12-01", status: "Paid", method: "Bank Transfer" },
+    { id: 3, amount: 850.25, date: "2024-02-01", status: "Pending", method: "PayPal" },
+    { id: 4, amount: 675.80, date: "2023-11-01", status: "Paid", method: "PayPal" },
+    { id: 5, amount: 892.45, date: "2023-10-01", status: "Paid", method: "Bank Transfer" },
+    { id: 6, amount: 1156.30, date: "2023-09-01", status: "Paid", method: "PayPal" },
+    { id: 7, amount: 734.55, date: "2023-08-01", status: "Paid", method: "Bank Transfer" },
+    { id: 8, amount: 945.20, date: "2023-07-01", status: "Paid", method: "PayPal" }
   ]);
 
   const [referralLink] = useState("https://quickwin.com/ref/QW_REF_USER123");
@@ -147,6 +172,48 @@ export default function ResellerDashboard() {
     });
   };
 
+  const editCustomer = (customer: any) => {
+    toast({
+      title: "Edit Customer",
+      description: `Opening edit form for ${customer.name}`
+    });
+  };
+
+  const viewCustomerDetails = (customer: any) => {
+    toast({
+      title: "Customer Details",
+      description: `Viewing detailed information for ${customer.name}`
+    });
+  };
+
+  const openEmailCampaign = () => {
+    toast({
+      title: "Email Campaign",
+      description: "Opening email campaign builder with customer segmentation tools"
+    });
+  };
+
+  const openSettings = () => {
+    toast({
+      title: "Settings",
+      description: "Opening reseller account settings and preferences"
+    });
+  };
+
+  const openAnalytics = () => {
+    toast({
+      title: "Analytics Dashboard",
+      description: "Opening detailed analytics with charts and performance metrics"
+    });
+  };
+
+  const openNotifications = () => {
+    toast({
+      title: "Notifications",
+      description: "You have 3 new notifications about recent sales"
+    });
+  };
+
   const downloadReport = () => {
     const reportData = {
       stats,
@@ -203,7 +270,7 @@ export default function ResellerDashboard() {
               Refresh
             </Button>
             <Button 
-              onClick={() => toast({ title: "Notifications", description: "No new notifications" })}
+              onClick={openNotifications}
               className="bg-gradient-to-r from-primary to-secondary"
             >
               <Bell className="h-4 w-4 mr-2" />
@@ -296,7 +363,7 @@ export default function ResellerDashboard() {
                       Share Link
                     </Button>
                     <Button 
-                      onClick={() => toast({ title: "Analytics", description: "Analytics dashboard opened" })}
+                      onClick={openAnalytics}
                       variant="outline" 
                       className="flex-1 bg-white/10 border-white/20"
                     >
@@ -364,7 +431,7 @@ export default function ResellerDashboard() {
                   </Button>
 
                   <Button 
-                    onClick={() => toast({ title: "Email Campaign", description: "Email campaign builder opened" })}
+                    onClick={openEmailCampaign}
                     className="h-auto p-4 flex flex-col items-center gap-2 bg-blue-600 hover:bg-blue-700"
                   >
                     <Mail className="h-6 w-6" />
@@ -372,7 +439,7 @@ export default function ResellerDashboard() {
                   </Button>
 
                   <Button 
-                    onClick={() => toast({ title: "Settings", description: "Settings panel opened" })}
+                    onClick={openSettings}
                     className="h-auto p-4 flex flex-col items-center gap-2 bg-orange-600 hover:bg-orange-700"
                   >
                     <Settings className="h-6 w-6" />
@@ -390,57 +457,87 @@ export default function ResellerDashboard() {
                 <CardDescription className="text-gray-300">Manage your customer base and track their status</CardDescription>
               </CardHeader>
               <CardContent>
-                <ScrollArea className="h-96">
+                <div className="mb-4 flex justify-between items-center">
+                  <p className="text-sm text-gray-300">
+                    {customers.length} total customers
+                  </p>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="outline" className="bg-white/10 border-white/20">
+                      <Download className="h-3 w-3 mr-1" />
+                      Export
+                    </Button>
+                    <Button size="sm" className="bg-green-600 hover:bg-green-700">
+                      <UserPlus className="h-3 w-3 mr-1" />
+                      Add Customer
+                    </Button>
+                  </div>
+                </div>
+                <ScrollArea className="h-[500px] rounded-md border border-white/20 bg-black/20">
                   <table className="w-full">
-                    <thead className="sticky top-0 bg-slate-900/80 backdrop-blur-sm">
-                      <tr className="border-b border-white/20">
-                        <th className="text-left py-3 px-4 text-gray-300">Name</th>
-                        <th className="text-left py-3 px-4 text-gray-300">Email</th>
-                        <th className="text-left py-3 px-4 text-gray-300">Plan</th>
-                        <th className="text-left py-3 px-4 text-gray-300">Status</th>
-                        <th className="text-left py-3 px-4 text-gray-300">Commission</th>
-                        <th className="text-left py-3 px-4 text-gray-300">Actions</th>
+                    <thead className="sticky top-0 bg-slate-900/95 backdrop-blur-sm border-b border-white/20">
+                      <tr>
+                        <th className="text-left py-4 px-4 text-gray-300 font-semibold">Name</th>
+                        <th className="text-left py-4 px-4 text-gray-300 font-semibold">Email</th>
+                        <th className="text-left py-4 px-4 text-gray-300 font-semibold">Plan</th>
+                        <th className="text-left py-4 px-4 text-gray-300 font-semibold">Status</th>
+                        <th className="text-left py-4 px-4 text-gray-300 font-semibold">Commission</th>
+                        <th className="text-left py-4 px-4 text-gray-300 font-semibold">Actions</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody className="divide-y divide-white/10">
                       {customers.map((customer) => (
-                        <tr key={customer.id} className="border-b border-white/10">
-                          <td className="py-3 px-4 text-white">{customer.name}</td>
-                          <td className="py-3 px-4 text-gray-300">{customer.email}</td>
-                          <td className="py-3 px-4">
-                            <Badge variant={customer.plan === 'Premium' ? 'default' : 'secondary'}>
+                        <tr key={customer.id} className="hover:bg-white/5 transition-colors">
+                          <td className="py-4 px-4">
+                            <div className="font-semibold text-white">{customer.name}</div>
+                            <div className="text-xs text-gray-400">Joined {customer.joined}</div>
+                          </td>
+                          <td className="py-4 px-4 text-gray-300">{customer.email}</td>
+                          <td className="py-4 px-4">
+                            <Badge variant={customer.plan === 'Premium' ? 'default' : 'secondary'} className="text-xs">
                               {customer.plan}
                             </Badge>
                           </td>
-                          <td className="py-3 px-4">
-                            <Badge variant={customer.status === 'Active' ? 'default' : 'destructive'}>
+                          <td className="py-4 px-4">
+                            <Badge variant={customer.status === 'Active' ? 'default' : 'destructive'} className="text-xs">
                               {customer.status}
                             </Badge>
                           </td>
-                          <td className="py-3 px-4 text-green-400">${customer.commission}</td>
-                          <td className="py-3 px-4">
-                            <div className="flex gap-2">
+                          <td className="py-4 px-4 font-semibold text-green-400">${customer.commission}</td>
+                          <td className="py-4 px-4">
+                            <div className="flex gap-1">
                               <Button 
                                 size="sm" 
                                 variant="outline" 
-                                className="bg-white/10 border-white/20"
-                                onClick={() => toast({ title: "Customer Details", description: `Viewing ${customer.name}'s details` })}
+                                className="bg-white/10 border-white/20 hover:bg-white/20 h-8 w-8 p-0"
+                                onClick={() => viewCustomerDetails(customer)}
+                                title="View Details"
                               >
                                 <Eye className="h-3 w-3" />
                               </Button>
                               <Button 
                                 size="sm" 
                                 variant="outline" 
-                                className="bg-blue-600/20 border-blue-600/20 hover:bg-blue-600/40"
-                                onClick={() => toast({ title: "Customer Edit", description: `Editing ${customer.name}'s account` })}
+                                className="bg-blue-600/20 border-blue-600/20 hover:bg-blue-600/40 h-8 w-8 p-0"
+                                onClick={() => editCustomer(customer)}
+                                title="Edit Customer"
                               >
                                 <Edit className="h-3 w-3" />
                               </Button>
                               <Button 
                                 size="sm" 
                                 variant="outline" 
-                                className="bg-red-600/20 border-red-600/20 hover:bg-red-600/40"
+                                className="bg-green-600/20 border-green-600/20 hover:bg-green-600/40 h-8 w-8 p-0"
+                                onClick={() => sendEmail(customer.email)}
+                                title="Send Email"
+                              >
+                                <Mail className="h-3 w-3" />
+                              </Button>
+                              <Button 
+                                size="sm" 
+                                variant="outline" 
+                                className="bg-red-600/20 border-red-600/20 hover:bg-red-600/40 h-8 w-8 p-0"
                                 onClick={() => deleteCustomer(customer.id)}
+                                title="Delete Customer"
                               >
                                 <Trash2 className="h-3 w-3" />
                               </Button>
@@ -462,17 +559,48 @@ export default function ResellerDashboard() {
                 <CardDescription className="text-gray-300">Track your latest sales and commissions</CardDescription>
               </CardHeader>
               <CardContent>
-                <ScrollArea className="h-96">
-                  <div className="space-y-4">
+                <div className="mb-4 flex justify-between items-center">
+                  <p className="text-sm text-gray-300">
+                    {recentSales.length} recent sales
+                  </p>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="outline" className="bg-white/10 border-white/20">
+                      <FileText className="h-3 w-3 mr-1" />
+                      View All
+                    </Button>
+                    <Button size="sm" className="bg-purple-600 hover:bg-purple-700">
+                      <Download className="h-3 w-3 mr-1" />
+                      Export Sales
+                    </Button>
+                  </div>
+                </div>
+                <ScrollArea className="h-[450px] rounded-md border border-white/20 bg-black/20">
+                  <div className="space-y-3 p-4">
                     {recentSales.map((sale) => (
-                      <div key={sale.id} className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10">
-                        <div>
-                          <h4 className="font-semibold text-white">{sale.customer}</h4>
-                          <p className="text-sm text-gray-300">{sale.plan} Plan • {sale.date}</p>
+                      <div key={sale.id} className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                            <DollarSign className="h-5 w-5 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white">{sale.customer}</h4>
+                            <p className="text-sm text-gray-300">{sale.plan} Plan • {sale.date}</p>
+                          </div>
                         </div>
                         <div className="text-right">
                           <p className="font-semibold text-white">${sale.amount}</p>
                           <p className="text-sm text-green-400">+${sale.commission} commission</p>
+                        </div>
+                        <div className="flex gap-1">
+                          <Button 
+                            size="sm" 
+                            variant="outline" 
+                            className="bg-white/10 border-white/20 hover:bg-white/20 h-8 w-8 p-0"
+                            onClick={() => toast({ title: "Sale Details", description: `Viewing details for ${sale.customer}'s purchase` })}
+                            title="View Sale Details"
+                          >
+                            <Eye className="h-3 w-3" />
+                          </Button>
                         </div>
                       </div>
                     ))}
@@ -489,17 +617,48 @@ export default function ResellerDashboard() {
                 <CardDescription className="text-gray-300">Track your earnings and payment history</CardDescription>
               </CardHeader>
               <CardContent>
-                <ScrollArea className="h-64 mb-6">
-                  <div className="space-y-4">
+                <div className="mb-4 flex justify-between items-center">
+                  <p className="text-sm text-gray-300">
+                    Payout history and pending commissions
+                  </p>
+                  <div className="flex gap-2">
+                    <Button size="sm" variant="outline" className="bg-white/10 border-white/20">
+                      <FileText className="h-3 w-3 mr-1" />
+                      Tax Report
+                    </Button>
+                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                      <Download className="h-3 w-3 mr-1" />
+                      Export History
+                    </Button>
+                  </div>
+                </div>
+                <ScrollArea className="h-[300px] rounded-md border border-white/20 bg-black/20 mb-6">
+                  <div className="space-y-3 p-4">
                     {payouts.map((payout) => (
-                      <div key={payout.id} className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10">
-                        <div>
-                          <h4 className="font-semibold text-white">${payout.amount}</h4>
-                          <p className="text-sm text-gray-300">{payout.date} • {payout.method}</p>
+                      <div key={payout.id} className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center">
+                            <CreditCard className="h-5 w-5 text-white" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-white">${payout.amount}</h4>
+                            <p className="text-sm text-gray-300">{payout.date} • {payout.method}</p>
+                          </div>
                         </div>
-                        <Badge variant={payout.status === 'Paid' ? 'default' : 'secondary'}>
-                          {payout.status}
-                        </Badge>
+                        <div className="flex items-center gap-3">
+                          <Badge variant={payout.status === 'Paid' ? 'default' : 'secondary'} className="text-xs">
+                            {payout.status}
+                          </Badge>
+                          <Button 
+                            size="sm" 
+                            variant="outline" 
+                            className="bg-white/10 border-white/20 hover:bg-white/20 h-8 w-8 p-0"
+                            onClick={() => toast({ title: "Payout Details", description: `Viewing payout details for ${payout.date}` })}
+                            title="View Payout Details"
+                          >
+                            <Eye className="h-3 w-3" />
+                          </Button>
+                        </div>
                       </div>
                     ))}
                   </div>
@@ -509,11 +668,22 @@ export default function ResellerDashboard() {
                     <div>
                       <h4 className="font-semibold text-white">Pending Commissions</h4>
                       <p className="text-2xl font-bold text-green-400">${stats.pendingCommissions}</p>
+                      <p className="text-xs text-gray-400 mt-1">Available for payout</p>
                     </div>
-                    <Button onClick={requestPayout} className="bg-green-600 hover:bg-green-700">
-                      <CreditCard className="h-4 w-4 mr-2" />
-                      Request Payout
-                    </Button>
+                    <div className="flex gap-2">
+                      <Button 
+                        variant="outline" 
+                        className="bg-white/10 border-white/20"
+                        onClick={() => toast({ title: "Payout Settings", description: "Opening payout method preferences" })}
+                      >
+                        <Settings className="h-4 w-4 mr-2" />
+                        Settings
+                      </Button>
+                      <Button onClick={requestPayout} className="bg-green-600 hover:bg-green-700">
+                        <CreditCard className="h-4 w-4 mr-2" />
+                        Request Payout
+                      </Button>
+                    </div>
                   </div>
                 </div>
               </CardContent>
