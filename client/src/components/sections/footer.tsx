@@ -25,7 +25,7 @@ export default function Footer() {
   ];
 
   const supportLinks = [
-    { href: "mailto:support@quickwin.com", label: "Email Support", icon: Mail },
+    { href: "https://t.me/quickwinofc", label: "Contact Support", icon: Mail },
     { href: "https://t.me/quickwinofc", label: "Telegram", icon: FaTelegramPlane },
     { href: "/terms", label: "Terms of Service" },
     { href: "/privacy", label: "Privacy Policy" },
