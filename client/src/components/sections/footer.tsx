@@ -26,7 +26,7 @@ export default function Footer() {
 
   const supportLinks = [
     { href: "mailto:support@quickwin.com", label: "Email Support", icon: Mail },
-    { href: "https://t.me/quickwin_official", label: "Telegram", icon: FaTelegramPlane },
+    { href: "https://t.me/quickwinofc", label: "Telegram", icon: FaTelegramPlane },
     { href: "/terms", label: "Terms of Service" },
     { href: "/privacy", label: "Privacy Policy" },
     { href: "/refund", label: "Refund Policy" },
@@ -99,7 +99,7 @@ export default function Footer() {
                     variant="ghost" 
                     size="icon"
                     className="text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
-                    onClick={() => window.open('https://discord.gg/quickwin', '_blank')}
+                    onClick={() => window.open('https://discord.gg/huVNUZUtTH', '_blank')}
                   >
                     <FaDiscord className="h-5 w-5" />
                   </Button>
@@ -107,7 +107,7 @@ export default function Footer() {
                     variant="ghost" 
                     size="icon"
                     className="text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
-                    onClick={() => window.open('https://twitter.com/quickwin_ai', '_blank')}
+                    onClick={() => window.open('https://twitter.com/quickwinofc', '_blank')}
                   >
                     <FaTwitter className="h-5 w-5" />
                   </Button>
@@ -115,7 +115,7 @@ export default function Footer() {
                     variant="ghost" 
                     size="icon"
                     className="text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
-                    onClick={() => window.open('https://youtube.com/@quickwin', '_blank')}
+                    onClick={() => window.open('https://t.me/quickwinofc', '_blank')}
                   >
                     <FaYoutube className="h-5 w-5" />
                   </Button>
