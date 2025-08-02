@@ -51,7 +51,7 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
               <Button 
                 onClick={() => {
-                  window.open('https://t.me/quickwin_official', '_blank');
+                  window.open('https://t.me/quickwinofc', '_blank');
                   // You can add analytics tracking here
                 }}
                 className="bg-gradient-to-r from-primary to-secondary hover:from-primary/80 hover:to-secondary/80 px-8 py-4 rounded-xl text-white font-semibold transition-all duration-300 shadow-lg shadow-primary/25 h-auto"
